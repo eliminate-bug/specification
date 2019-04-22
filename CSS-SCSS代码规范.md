@@ -1,6 +1,7 @@
-#1 注释规范
+# 1 注释规范
 
-#2 缩进/空格/换行规范
+# 2 缩进/空格/换行规范
+
 - 每个缩进使用4个空格，不允许使用 2 个空格 或 tab
   ```
   //正确
@@ -29,7 +30,7 @@
   .sample {
       display: flex;
   }
-
+  
   .sample1 {
       display: block;
   }
@@ -76,11 +77,11 @@
   ```
   //正确
   .radio-label + .radio-box {
-
+  
   }
   //错误
   .radio-label+.radio-box {
-
+  
   }
   ```
 - 引用mixin和多层嵌套必须有一个空行
@@ -88,9 +89,9 @@
   //正确
   .sample {
       @include color-box;
-
+  
       margin: 15px;
-
+  
       &:hover {
         display: block;
       }
@@ -134,7 +135,9 @@
       box-sizing: border-box;
   }
   ```
-#3 选择器
+
+# 3 选择器
+
 - 禁止使用ID应用于样式，应该使用class
   ```
   //正确
@@ -153,7 +156,7 @@
   //推荐
   .content {
       display: flex;
-
+  
       > .nav {
           flex: 1;
       }
@@ -161,7 +164,7 @@
   //不推荐
   .content {
       display: flex;
-
+  
       > nav {
           flex: 1
       }
@@ -172,7 +175,7 @@
   //推荐
   .content {
       display: flex;
-
+  
       > .nav {
           flex: 1;
       }
@@ -180,7 +183,7 @@
   //不推荐
   .content {
       display: flex;
-
+  
       .nav {
           flex: 1
       }
@@ -192,10 +195,10 @@
   //推荐
   .content {
       display: flex;
-
+  
       > .nav {
           flex: 1;
-
+  
           > .item {
               text-align: center;
           }
@@ -211,7 +214,7 @@
   //推荐
   .content {
       font-size: 1.2rem;
-
+  
       @media screen and (min-width: 767px) {
           font-size: 1rem;
       }
@@ -237,7 +240,9 @@
       font-size: 1rem;
   }
   ```
-#4 属性规范
+
+# 4 属性规范
+
 - 属性定义必须另起一行
   ```
   // 正确
@@ -245,7 +250,7 @@
       margin: 0;
       padding: 0;
   }
-
+  
   // 错误
   .selector { margin: 0; padding: 0; }
   ```
@@ -365,14 +370,14 @@
   }
   ```
 - 推荐并适当缩写值
-“适当”是因为缩写总是会包含一系列的值，而有时候我们并不希望设置某一值，反而造成了麻烦，那么这时候你可以不缩写，而是分开写。
+  “适当”是因为缩写总是会包含一系列的值，而有时候我们并不希望设置某一值，反而造成了麻烦，那么这时候你可以不缩写，而是分开写。
 
   ```
   // 有时我们只想设置一个容器水平居中，那么设置left，right就好，而top和bottom不是这个样式要关心的（如果设置了反倒会影响其他样式在这个容器上的使用）
-
+  
   // 示例
   <div class="box center"></div>
-
+  
   .box {
       margin-top: 10px;
   }
@@ -380,7 +385,7 @@
   .center {
       margin: 0 auto;
   }
-
+  
   // 比如下面这个模块的样式设置，我们确实需要设置padding的所有项，于是我们就可以采用缩写
   .footer {
       padding: 12px 3px;
@@ -439,7 +444,7 @@
   }
   ```
 
-#5 Hack规范
+# 5 Hack规范
 
   通常我们禁止在CSS的一个选择器中使用hack混编，如果你确实需要写hack, 我们应该有一个class： xxx-fix, 最好把所有的hack放在一个独立的文件, 通过JS特性检测或者直接添加到dom中。
   ```
@@ -457,7 +462,8 @@
       key: fix-value\0; //ie 9-11
   }
   ```
-#6 命名规范
+# 6 命名规范
+
 - 文件夹命名
   - css文件夹命名应参照项目文件夹命名规则，命名总是以字母开头而不是数字，且字母一律小写，以中划线连接多个单词且不带其他标点符号。
   如：input-number
@@ -678,7 +684,7 @@
   ```
   多个参数之间用逗号分隔，给参数设置默认值
 
-#7 重写规范
+# 7 重写规范
 
   我们不允许直接使用公共库的选择器进行重写，如果要进行重写，必须自己重新加一个新的选择器，并且，这个选择器不能对公共库有影响。
   ```
